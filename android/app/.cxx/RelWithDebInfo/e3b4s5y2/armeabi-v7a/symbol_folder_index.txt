@@ -1,0 +1,1 @@
+/Users/mac/Development/quiick_chat/android/app/build/intermediates/cxx/RelWithDebInfo/e3b4s5y2/obj/armeabi-v7a

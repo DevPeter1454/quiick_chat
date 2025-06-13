@@ -1,0 +1,2 @@
+/Users/mac/Development/quiick_chat/android/app/.cxx/RelWithDebInfo/336hm4u3/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/mac/Development/quiick_chat/android/app/.cxx/RelWithDebInfo/336hm4u3/arm64-v8a/CMakeFiles/rebuild_cache.dir

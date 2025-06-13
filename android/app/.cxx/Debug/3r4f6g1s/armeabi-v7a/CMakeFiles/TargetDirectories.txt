@@ -1,0 +1,2 @@
+/Users/mac/Development/quiick_chat/android/app/.cxx/Debug/3r4f6g1s/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/mac/Development/quiick_chat/android/app/.cxx/Debug/3r4f6g1s/armeabi-v7a/CMakeFiles/rebuild_cache.dir
