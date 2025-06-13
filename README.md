@@ -1,7 +1,7 @@
 # Quiick Chat
 
 A modern Flutter chat application built with the Stacked architecture.
-
+Made changes
 ## Getting Started
 
 ### Prerequisites
