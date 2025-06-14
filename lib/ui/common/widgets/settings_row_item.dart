@@ -11,14 +11,14 @@ class SettingsRowItem extends StatelessWidget {
   final double? fontSize;
 
   const SettingsRowItem({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.onTap,
     this.titleColor,
     this.valueColor = const Color(0xFF5E5F60),
     this.fontSize = 18,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

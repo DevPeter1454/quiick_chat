@@ -13,10 +13,10 @@ class PreviewDialog extends StackedView<PreviewDialogModel> {
   final Function(DialogResponse) completer;
 
   const PreviewDialog({
-    Key? key,
+    super.key,
     required this.request,
     required this.completer,
-  }) : super(key: key);
+  });
 
   @override
   Widget builder(

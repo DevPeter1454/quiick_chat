@@ -15,7 +15,7 @@ import 'onboarding_almost_done_viewmodel.dart';
 ])
 class OnboardingAlmostDoneView extends StatelessWidget
     with $OnboardingAlmostDoneView {
-  const OnboardingAlmostDoneView({Key? key}) : super(key: key);
+  const OnboardingAlmostDoneView({super.key});
 
   @override
   Widget build(BuildContext context) {

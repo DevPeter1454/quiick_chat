@@ -140,7 +140,7 @@ extension ValueProperties on FormStateHelper {
 }
 
 extension Methods on FormStateHelper {
-  setSearchValidationMessage(String? validationMessage) =>
+  String? setSearchValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[SearchValueKey] = validationMessage;
 
   /// Clears text input fields on the Form

@@ -12,7 +12,7 @@ import 'update_viewmodel.dart';
   FormTextField(name: 'search'),
 ])
 class UpdateView extends StatelessWidget with $UpdateView {
-  const UpdateView({Key? key}) : super(key: key);
+  const UpdateView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,7 @@ import 'onboarding_phone_otp_viewmodel.dart';
     fields: [FormTextField(name: "code", validator: Validator.validateOTP)])
 class OnboardingPhoneOtpView extends StatelessWidget
     with $OnboardingPhoneOtpView {
-  const OnboardingPhoneOtpView({Key? key}) : super(key: key);
+  const OnboardingPhoneOtpView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -5,13 +5,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quiick_chat/ui/common/export.dart';
 import 'package:stacked/stacked.dart';
-import 'package:quiick_chat/ui/common/app_colors.dart';
-import 'package:quiick_chat/ui/common/ui_helpers.dart';
 
 import 'login_viewmodel.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +51,7 @@ class LoginView extends StatelessWidget {
                             ),
                           )
                         : PAppButton(
-                            text: "Login", onTap: model.loginIntoAgora),
+                            text: "Login", onTap: () {}), //model.loginIntoAgora
                   ),
                   const Spacer(),
                 ],

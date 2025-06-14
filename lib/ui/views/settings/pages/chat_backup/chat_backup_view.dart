@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'chat_backup_viewmodel.dart';
 
 class ChatBackupView extends StatelessWidget {
-  const ChatBackupView({Key? key}) : super(key: key);
+  const ChatBackupView({super.key});
 
   @override
   Widget build(BuildContext context) {

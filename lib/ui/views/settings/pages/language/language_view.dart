@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'language_viewmodel.dart';
 
 class LanguageView extends StatelessWidget {
-  const LanguageView({Key? key}) : super(key: key);
+  const LanguageView({super.key});
 
   @override
   Widget build(BuildContext context) {

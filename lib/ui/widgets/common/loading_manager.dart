@@ -8,9 +8,9 @@ class LoadingManager extends StatefulWidget {
   final Widget child;
 
   const LoadingManager({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   State<LoadingManager> createState() => _LoadingManagerState();

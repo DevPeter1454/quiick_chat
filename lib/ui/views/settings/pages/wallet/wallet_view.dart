@@ -6,7 +6,7 @@ import 'package:stacked/stacked.dart';
 import 'wallet_viewmodel.dart';
 
 class WalletView extends StatelessWidget {
-  const WalletView({Key? key}) : super(key: key);
+  const WalletView({super.key});
 
   @override
   Widget build(BuildContext context) {

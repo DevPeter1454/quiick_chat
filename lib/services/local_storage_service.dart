@@ -39,7 +39,7 @@ class LocalStorageService implements InitializableDependency {
 
   String? getAccessToken() {
     final token = _prefs.getString(_accessTokenKey);
-    _log.i('Retrieved access token: ${token != null ? '$token' : 'null'}');
+    _log.i('Retrieved access token: ${token ?? 'null'}');
     return token;
   }
 

@@ -14,7 +14,7 @@ import 'onboarding_phone_viewmodel.dart';
   FormTextField(name: 'phoneNumber', validator: Validator.validatePhoneNumber),
 ])
 class OnboardingPhoneView extends StatelessWidget with $OnboardingPhoneView {
-  const OnboardingPhoneView({Key? key}) : super(key: key);
+  const OnboardingPhoneView({super.key});
 
   @override
   Widget build(BuildContext context) {

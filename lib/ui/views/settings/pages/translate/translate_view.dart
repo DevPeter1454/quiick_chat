@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'translate_viewmodel.dart';
 
 class TranslateView extends StatelessWidget {
-  const TranslateView({Key? key}) : super(key: key);
+  const TranslateView({super.key});
 
   @override
   Widget build(BuildContext context) {

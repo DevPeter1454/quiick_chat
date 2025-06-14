@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'send_viewmodel.dart';
 
 class SendView extends StatelessWidget {
-  const SendView({Key? key}) : super(key: key);
+  const SendView({super.key});
 
   @override
   Widget build(BuildContext context) {

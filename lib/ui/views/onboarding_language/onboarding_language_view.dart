@@ -6,7 +6,7 @@ import 'package:stacked/stacked.dart';
 import 'onboarding_language_viewmodel.dart';
 
 class OnboardingLanguageView extends StatelessWidget {
-  const OnboardingLanguageView({Key? key}) : super(key: key);
+  const OnboardingLanguageView({super.key});
 
   @override
   Widget build(BuildContext context) {

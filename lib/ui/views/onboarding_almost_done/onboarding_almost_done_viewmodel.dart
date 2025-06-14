@@ -1,6 +1,6 @@
 import 'dart:io'; // Import dart:io for File
 
-import 'package:agora_chat_uikit/sdk_service/chat_sdk_service.dart';
+// import 'package:agora_chat_uikit/sdk_service/chat_sdk_service.dart';
 import 'package:image_picker/image_picker.dart'; // Import image_picker
 import 'package:quiick_chat/app/app.locator.dart';
 import 'package:quiick_chat/app/app.logger.dart';
@@ -56,15 +56,15 @@ class OnboardingAlmostDoneViewModel extends FormViewModel {
         _localStorageService.getUser()!.agoraChatInfo!.username;
     final agoraPassword =
         _localStorageService.getUser()!.agoraChatInfo!.password;
-    bool connected = await ChatClient.getInstance.isConnected();
-    if (connected) {
-      await ChatClient.getInstance.logout();
-    }
-    await ChatClient.getInstance
-        .loginWithPassword(agoraUsername, agoraPassword!);
-    await ChatClient.getInstance.startCallback();
-    bool isConnected = await ChatClient.getInstance.isConnected();
-    print("connected $isConnected");
+    // bool connected = await ChatClient.getInstance.isConnected();
+    // if (connected) {
+    //   await ChatClient.getInstance.logout();
+    // }
+    // await ChatClient.getInstance
+    //     .loginWithPassword(agoraUsername, agoraPassword!);
+    // await ChatClient.getInstance.startCallback();
+    // bool isConnected = await ChatClient.getInstance.isConnected();
+    // print("connected $isConnected");
   }
 
   Future<void> selectImage() async {

@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'call_viewmodel.dart';
 
 class CallView extends StatelessWidget {
-  const CallView({Key? key}) : super(key: key);
+  const CallView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:quiick_chat/ui/common/app_colors.dart';
 import 'package:quiick_chat/ui/common/export.dart';
-import 'package:quiick_chat/ui/common/ui_helpers.dart';
 import 'package:quiick_chat/ui/common/widgets/custom_text_field.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -16,10 +14,10 @@ class CodeInputDialog extends StackedView<CodeInputDialogModel> {
   final Function(DialogResponse) completer;
 
   const CodeInputDialog({
-    Key? key,
+    super.key,
     required this.request,
     required this.completer,
-  }) : super(key: key);
+  });
 
   @override
   Widget builder(

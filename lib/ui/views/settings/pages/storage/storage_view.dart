@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'storage_viewmodel.dart';
 
 class StorageView extends StatelessWidget {
-  const StorageView({Key? key}) : super(key: key);
+  const StorageView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'starred_messages_viewmodel.dart';
 
 class StarredMessagesView extends StatelessWidget {
-  const StarredMessagesView({Key? key}) : super(key: key);
+  const StarredMessagesView({super.key});
 
   @override
   Widget build(BuildContext context) {

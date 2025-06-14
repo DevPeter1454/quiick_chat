@@ -15,10 +15,10 @@ class NumberConfirmationDialog
   final Function(DialogResponse) completer;
 
   const NumberConfirmationDialog({
-    Key? key,
+    super.key,
     required this.request,
     required this.completer,
-  }) : super(key: key);
+  });
 
   @override
   Widget builder(

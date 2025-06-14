@@ -1,17 +1,15 @@
-import 'package:agora_chat_uikit/chat_uikit.dart';
+// import 'package:agora_chat_uikit/chat_uikit.dart';
 
 import 'package:faker/faker.dart' as Faker;
 import 'package:flutter/material.dart';
-import 'package:quiick_chat/ui/common/export.dart';
-import 'package:quiick_chat/ui/widgets/chat/voice_message_player.dart';
+// import 'package:quiick_chat/ui/common/export.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../ui/widgets/chat/chat_bubble.dart';
 import 'message_chat_viewmodel.dart';
 
 class MessageChatView extends StackedView<MessageChatViewModel> {
   final String userId;
-  const MessageChatView(this.userId, {Key? key}) : super(key: key);
+  const MessageChatView(this.userId, {super.key});
 
   @override
   Widget builder(
@@ -19,35 +17,38 @@ class MessageChatView extends StackedView<MessageChatViewModel> {
     MessageChatViewModel viewModel,
     Widget? child,
   ) {
-    ChatUIKitProfile profile = ChatUIKitProfile(
-      id: userId,
-      showName: "User random",
-      type: ChatUIKitProfileType.contact,
-      // avatarUrl:
-    );
-    MessagesViewController controller = MessagesViewController(
-      profile: profile,
-    );
+    // ChatUIKitProfile profile = ChatUIKitProfile(
+    //   id: userId,
+    //   showName: "User random",
+    //   type: ChatUIKitProfileType.contact,
+    //   // avatarUrl:
+    // );
+    // MessagesViewController controller = MessagesViewController(
+    //   profile: profile,
+    // );
     Faker.Faker faker = Faker.Faker();
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      body: MessagesView(
-        onItemTap: (context, model, rect) {
-          return true;
-        },
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        body: Center(
+          child: Text("Chat body"),
+        )
+        // MessagesView(
+        //   onItemTap: (context, model, rect) {
+        //     return true;
+        //   },
 
-        replyBarBuilder: (context, replyMessage) {
-          return ChatUIKitReplyBar(
-            onCancelTap: () {
-              debugPrint("Cancel reply tapped");
-              // Call the original cancel tap handler
-              replyMessage;
-            },
-            messageModel: replyMessage,
-            title: const Text("Reply"),
-            subTitle: Text(replyMessage.message.textContent),
-          );
-        },
+        //   replyBarBuilder: (context, replyMessage) {
+        //     return ChatUIKitReplyBar(
+        //       onCancelTap: () {
+        //         debugPrint("Cancel reply tapped");
+        //         // Call the original cancel tap handler
+        //         replyMessage;
+        //       },
+        //       messageModel: replyMessage,
+        //       title: const Text("Reply"),
+        //       subTitle: Text(replyMessage.message.textContent),
+        //     );
+        //   },
         // bubbleBuilder: (context, child, model) {
         //   final isSender = model.message.from != userId;
         //   final timestamp =
@@ -192,114 +193,114 @@ class MessageChatView extends StackedView<MessageChatViewModel> {
         //   );
         // },
 
-        onItemLongPressHandler: (context, model, rect, defaultActions) {
-          // Create a list to hold our custom actions
-          List<ChatUIKitEventAction> customActions = [];
+        // onItemLongPressHandler: (context, model, rect, defaultActions) {
+        //   // Create a list to hold our custom actions
+        //   List<ChatUIKitEventAction> customActions = [];
 
-          // Loop through all default actions and customize them as needed
-          for (var action in defaultActions) {
-            // Determine the proper label based on action type
-            String actionLabel;
-            switch (action.actionType) {
-              case ChatUIKitActionType.forward:
-                actionLabel = 'Forward';
-                break;
-              case ChatUIKitActionType.reply:
-                actionLabel = 'Reply';
-                break;
-              case ChatUIKitActionType.delete:
-                actionLabel = 'Delete';
-                break;
-              case ChatUIKitActionType.report:
-                actionLabel = 'Report';
-                break;
-              case ChatUIKitActionType.recall:
-                actionLabel = 'Recall';
-                break;
-              case ChatUIKitActionType.copy:
-                actionLabel = 'Copy';
-                break;
-              case ChatUIKitActionType.multiSelect:
-                actionLabel = 'Select';
-                break;
-              default:
-                actionLabel = action.label ?? 'Action';
-                break;
-            }
+        //   // Loop through all default actions and customize them as needed
+        //   for (var action in defaultActions) {
+        //     // Determine the proper label based on action type
+        //     String actionLabel;
+        //     switch (action.actionType) {
+        //       case ChatUIKitActionType.forward:
+        //         actionLabel = 'Forward';
+        //         break;
+        //       case ChatUIKitActionType.reply:
+        //         actionLabel = 'Reply';
+        //         break;
+        //       case ChatUIKitActionType.delete:
+        //         actionLabel = 'Delete';
+        //         break;
+        //       case ChatUIKitActionType.report:
+        //         actionLabel = 'Report';
+        //         break;
+        //       case ChatUIKitActionType.recall:
+        //         actionLabel = 'Recall';
+        //         break;
+        //       case ChatUIKitActionType.copy:
+        //         actionLabel = 'Copy';
+        //         break;
+        //       case ChatUIKitActionType.multiSelect:
+        //         actionLabel = 'Select';
+        //         break;
+        //       default:
+        //         actionLabel = action.label ?? 'Action';
+        //         break;
+        //     }
 
-            // Create a custom version of each action with proper label
-            customActions.add(
-              ChatUIKitEventAction(
-                actionType: action.actionType,
-                onTap: () {
-                  debugPrint("$actionLabel message action tapped");
-                  // Call the original action's onTap handler
-                  action.onTap?.call();
-                },
-                type: action.type,
-                label: actionLabel,
-              ),
-            );
-          }
+        //     // Create a custom version of each action with proper label
+        //     customActions.add(
+        //       ChatUIKitEventAction(
+        //         actionType: action.actionType,
+        //         onTap: () {
+        //           debugPrint("$actionLabel message action tapped");
+        //           // Call the original action's onTap handler
+        //           action.onTap?.call();
+        //         },
+        //         type: action.type,
+        //         label: actionLabel,
+        //       ),
+        //     );
+        //   }
 
-          return customActions;
-        },
-        appBarModel: ChatUIKitAppBarModel(
-            showBackButton: false,
-            // title: "User ",
-            bottomLine: false,
-            centerWidget: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                horizontalSpace(18),
-                CircleAvatar(
-                  radius: 18,
-                  backgroundImage: NetworkImage(
-                    faker.image.loremPicsum(),
-                  ),
-                ),
-                horizontalSpace(13),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "User random",
-                      style: AppTextstyles.mediumBold,
-                    ),
-                    Text(
-                      "Last active:x",
-                      style: AppTextstyles.regular(
-                          size: 8, color: const Color(0xFF5E5F60)),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            leadingActions: [
-              ChatUIKitAppBarAction(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 27.0),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    size: 18,
-                    color: AppColors.kcPrimaryColor,
-                  ),
-                ),
-                onTap: (context) => viewModel.back(),
-              ),
-            ]),
-        showMessageItemNickname: (model) {
-          return false;
-        },
-        backgroundWidget: Image.asset(
-          AppImages.chatBackdrop,
-          height: screenHeight(context),
-          fit: BoxFit.fill,
-        ),
-        showMessageItemAvatar: (model) => false,
-        profile: profile,
-        controller: controller,
+        //   return customActions;
+        // },
+        // appBarModel: ChatUIKitAppBarModel(
+        //     showBackButton: false,
+        //     // title: "User ",
+        //     bottomLine: false,
+        //     centerWidget: Row(
+        //       mainAxisAlignment: MainAxisAlignment.start,
+        //       children: [
+        //         horizontalSpace(18),
+        //         CircleAvatar(
+        //           radius: 18,
+        //           backgroundImage: NetworkImage(
+        //             faker.image.loremPicsum(),
+        //           ),
+        //         ),
+        //         horizontalSpace(13),
+        //         Column(
+        //           crossAxisAlignment: CrossAxisAlignment.start,
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           children: [
+        //             Text(
+        //               "User random",
+        //               style: AppTextstyles.mediumBold,
+        //             ),
+        //             Text(
+        //               "Last active:x",
+        //               style: AppTextstyles.regular(
+        //                   size: 8, color: const Color(0xFF5E5F60)),
+        //             ),
+        //           ],
+        //         )
+        //       ],
+        //     ),
+        //     leadingActions: [
+        //       ChatUIKitAppBarAction(
+        //         child: Padding(
+        //           padding: const EdgeInsets.only(left: 27.0),
+        //           child: Icon(
+        //             Icons.arrow_back_ios,
+        //             size: 18,
+        //             color: AppColors.kcPrimaryColor,
+        //           ),
+        //         ),
+        //         onTap: (context) => viewModel.back(),
+        //       ),
+        //     ]),
+        // showMessageItemNickname: (model) {
+        //   return false;
+        // },
+        // backgroundWidget: Image.asset(
+        //   AppImages.chatBackdrop,
+        //   height: screenHeight(context),
+        //   fit: BoxFit.fill,
+        // ),
+        // showMessageItemAvatar: (model) => false,
+        // profile: profile,
+        // controller: controller,
 
         // itemBuilder: (context, model) {
         //   final isSender = model.message.from != userId;
@@ -465,8 +466,8 @@ class MessageChatView extends StackedView<MessageChatViewModel> {
 
         //   return true; // Return true to indicate we've handled the tap
         // },
-      ),
-    );
+        // ),
+        );
   }
 
   @override
@@ -476,4 +477,4 @@ class MessageChatView extends StackedView<MessageChatViewModel> {
       MessageChatViewModel();
 }
 
-ChatUIKitPopupMenuController? popupMenuController;
+// ChatUIKitPopupMenuController? popupMenuController;

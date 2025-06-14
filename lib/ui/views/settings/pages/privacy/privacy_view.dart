@@ -7,7 +7,7 @@ import 'package:stacked/stacked.dart';
 import 'privacy_viewmodel.dart';
 
 class PrivacyView extends StatelessWidget {
-  const PrivacyView({Key? key}) : super(key: key);
+  const PrivacyView({super.key});
 
   @override
   Widget build(BuildContext context) {

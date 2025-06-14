@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'linked_devices_viewmodel.dart';
 
 class LinkedDevicesView extends StatelessWidget {
-  const LinkedDevicesView({Key? key}) : super(key: key);
+  const LinkedDevicesView({super.key});
 
   @override
   Widget build(BuildContext context) {

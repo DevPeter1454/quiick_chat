@@ -8,10 +8,10 @@ class FilePreviewDialog extends StatelessWidget {
   final String fileName;
 
   const FilePreviewDialog({
-    Key? key,
+    super.key,
     required this.fileUrl,
     required this.fileName,
-  }) : super(key: key);
+  });
 
   String _getFileExtension() {
     return path.extension(fileName).toLowerCase();
@@ -81,7 +81,7 @@ class FilePreviewDialog extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.description, size: 60, color: Colors.blue),
+            const Icon(Icons.description, size: 60, color: Colors.blue),
             const SizedBox(height: 16),
             Text('Word Document', style: AppTextstyles.mediumBold),
             Text(fileName, style: AppTextstyles.small),
@@ -92,7 +92,7 @@ class FilePreviewDialog extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.table_chart, size: 60, color: Colors.green),
+            const Icon(Icons.table_chart, size: 60, color: Colors.green),
             const SizedBox(height: 16),
             Text('Excel Spreadsheet', style: AppTextstyles.mediumBold),
             Text(fileName, style: AppTextstyles.small),
@@ -103,7 +103,7 @@ class FilePreviewDialog extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.slideshow, size: 60, color: Colors.orange),
+            const Icon(Icons.slideshow, size: 60, color: Colors.orange),
             const SizedBox(height: 16),
             Text('PowerPoint Presentation', style: AppTextstyles.mediumBold),
             Text(fileName, style: AppTextstyles.small),

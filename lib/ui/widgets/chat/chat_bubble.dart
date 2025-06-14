@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiick_chat/ui/common/export.dart';
-import 'package:agora_chat_uikit/chat_uikit.dart';
+// import 'package:agora_chat_uikit/chat_uikit.dart';
 
 class ChatBubble extends StatelessWidget {
   final String? message;
@@ -8,17 +8,17 @@ class ChatBubble extends StatelessWidget {
   final DateTime timestamp;
   final bool isRead;
   final Widget? mediaContent; // Add this for media content
-  final MessageType? messageType; // Add message type
+  // final MessageType? messageType; // Add message type
 
   const ChatBubble({
-    Key? key,
+    super.key,
     this.message,
     required this.isSender,
     required this.timestamp,
     this.isRead = false,
     this.mediaContent, // Media content widget
-    this.messageType,
-  }) : super(key: key);
+    // this.messageType,
+  });
 
   @override
   Widget build(BuildContext context) {

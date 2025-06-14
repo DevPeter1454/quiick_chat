@@ -15,7 +15,7 @@ import 'add_card_viewmodel.dart';
   FormTextField(name: 'walletPin'),
 ])
 class AddCardView extends StatelessWidget with $AddCardView {
-  const AddCardView({Key? key}) : super(key: key);
+  const AddCardView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,4 @@
-import 'package:agora_chat_uikit/chat_uikit.dart';
-import 'package:agora_chat_uikit/ui/views/conversations_view.dart';
-import 'package:faker/faker.dart';
+// import 'package:agora_chat_uikit/chat_uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,11 +14,11 @@ import 'chat_viewmodel.dart';
   FormTextField(name: 'search'),
 ])
 class ChatView extends StatelessWidget with $ChatView {
-  const ChatView({Key? key}) : super(key: key);
+  const ChatView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Faker faker = Faker();
+    // Faker faker = Faker();
     return ViewModelBuilder<ChatViewModel>.reactive(
       viewModelBuilder: () => ChatViewModel(),
       onViewModelReady: (viewModel) => syncFormWithViewModel(viewModel),
@@ -61,74 +59,75 @@ class ChatView extends StatelessWidget with $ChatView {
                       hintText: "Search Here",
                       keyboardType: TextInputType.text),
                 ),
- 
+
 //
                 verticalSpace(18.h),
-                Expanded(
-                  child: ConversationsView(
-                    searchBarHideText: "Search Here",
-                    backgroundWidget: Container(
-                      color: AppColors.kcWhiteColor,
-                    ),
-                    enableAppBar: false,
-                    enableSearchBar: false,
-                    itemBuilder: (context, model) {
-                      return ChatTileWidget(
-                        userName: model.showName,
-                        lastMessage: model.lastMessage!.bodyType ==
-                                MessageType.IMAGE
-                            ? "Image"
-                            : model.lastMessage!.bodyType == MessageType.VIDEO
-                                ? "Video"
-                                : model.lastMessage!.bodyType ==
-                                        MessageType.FILE
-                                    ? "File"
-                                    : model.lastMessage!.bodyType ==
-                                            MessageType.VOICE
-                                        ? "Audio"
-                                        : model.lastMessage!.textContent,
-                        isRead: model.lastMessage!.hasReadAck,
-                        imageUrl: model.avatarUrl ?? faker.image.loremPicsum(),
-                        dateTime: DateTime.fromMillisecondsSinceEpoch(
-                            model.lastMessage!.serverTime),
-                      );
-                    },
-                    onItemTap: (context, info) {
-                      model.navigateToMessageView(info.profile.id);
-                    },
-                    appBarModel: ChatUIKitAppBarModel(
-                      bottomLine: false,
-                      backgroundColor: AppColors.kcWhiteColor,
-                      title: "Chats",
-                      showBackButton: false,
-                      centerTitle: true,
-                      leadingActions: [
-                        ChatUIKitAppBarAction(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 0.0),
-                            child: SvgPicture.asset(AppIcons.filterIcon),
-                          ),
-                        )
-                      ],
-                      trailingActions: [
-                        ChatUIKitAppBarAction(
-                          onTap: (_) {
-                            model.showAddContactDialog();
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 16.0),
-                            child: Icon(
-                              Icons.add,
-                              color: AppColors.kcPrimaryColor,
-                            ),
-                          ),
-                        )
-                      ],
-                      titleTextStyle: AppTextstyles.semiBold(
-                          color: AppColors.kcPrimaryColor, size: 22.sp),
-                    ),
-                  ),
-                )
+                // Expanded(
+                //   child: ConversationsView(
+                //     searchBarHideText: "Search Here",
+                //     backgroundWidget: Container(
+                //       color: AppColors.kcWhiteColor,
+                //     ),
+                //     enableAppBar: false,
+                //     enableSearchBar: false,
+                //     itemBuilder: (context, model) {
+                //       return ChatTileWidget(
+                //         userName: model.showName,
+                //         lastMessage: model.lastMessage!.bodyType ==
+                //                 MessageType.IMAGE
+                //             ? "Image"
+                //             : model.lastMessage!.bodyType == MessageType.VIDEO
+                //                 ? "Video"
+                //                 : model.lastMessage!.bodyType ==
+                //                         MessageType.FILE
+                //                     ? "File"
+                //                     : model.lastMessage!.bodyType ==
+                //                             MessageType.VOICE
+                //                         ? "Audio"
+                //                         : model.lastMessage!.textContent,
+                //         isRead: model.lastMessage!.hasReadAck,
+                //         imageUrl: model.avatarUrl ?? faker.image.loremPicsum(),
+                //         dateTime: DateTime.fromMillisecondsSinceEpoch(
+                //             model.lastMessage!.serverTime),
+                //       );
+                //     },
+                //     onItemTap: (context, info) {
+                //       model.navigateToMessageView(info.profile.id);
+                //     },
+                //     appBarModel: ChatUIKitAppBarModel(
+                //       bottomLine: false,
+                //       backgroundColor: AppColors.kcWhiteColor,
+                //       title: "Chats",
+                //       showBackButton: false,
+                //       centerTitle: true,
+                //       leadingActions: [
+                //         ChatUIKitAppBarAction(
+                //           child: Padding(
+                //             padding: const EdgeInsets.only(left: 0.0),
+                //             child: SvgPicture.asset(AppIcons.filterIcon),
+                //           ),
+                //         )
+                //       ],
+                //       trailingActions: [
+                //         ChatUIKitAppBarAction(
+                //           onTap: (_) {
+                //             model.showAddContactDialog();
+                //           },
+                //           child: Padding(
+                //             padding: const EdgeInsets.only(right: 16.0),
+                //             child: Icon(
+                //               Icons.add,
+                //               color: AppColors.kcPrimaryColor,
+                //             ),
+                //           ),
+                //         )
+                //       ],
+                //       titleTextStyle: AppTextstyles.semiBold(
+                //           color: AppColors.kcPrimaryColor, size: 22.sp),
+                //     ),
+                //   ),
+                // )
+
                 // const Expanded(child: ConversationsView())
               ],
             ),

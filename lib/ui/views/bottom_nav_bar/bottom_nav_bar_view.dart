@@ -6,7 +6,7 @@ import 'package:stacked/stacked.dart';
 import 'bottom_nav_bar_viewmodel.dart';
 
 class BottomNavBarView extends StackedView<BottomNavBarViewModel> {
-  const BottomNavBarView({Key? key}) : super(key: key);
+  const BottomNavBarView({super.key});
 
   @override
   Widget builder(

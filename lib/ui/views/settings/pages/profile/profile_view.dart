@@ -14,7 +14,7 @@ import 'profile_viewmodel.dart';
   FormTextField(name: "phoneNumber", validator: Validator.validatePhoneNumber),
 ])
 class ProfileView extends StatelessWidget with $ProfileView {
-  const ProfileView({Key? key}) : super(key: key);
+  const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'contact_viewmodel.dart';
 
 class ContactView extends StatelessWidget {
-  const ContactView({Key? key}) : super(key: key);
+  const ContactView({super.key});
 
   @override
   Widget build(BuildContext context) {

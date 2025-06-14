@@ -16,10 +16,10 @@ class CountriesSheet extends StackedView<CountriesSheetModel>
   final Function(SheetResponse response)? completer;
   final SheetRequest request;
   const CountriesSheet({
-    Key? key,
+    super.key,
     required this.completer,
     required this.request,
-  }) : super(key: key);
+  });
 
   @override
   Widget builder(

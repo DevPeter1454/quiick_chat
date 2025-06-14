@@ -7,21 +7,22 @@ import 'package:quiick_chat/services/export.dart';
 import 'package:quiick_chat/ui/common/export.dart';
 import 'package:quiick_chat/ui/widgets/common/loading_manager.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:agora_chat_uikit/chat_uikit.dart';
+// import 'package:agora_chat_uikit/chat_uikit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
-  final options = ChatOptions(
-      appKey: "411297342#1528399",
-      autoLogin: false,
-      acceptInvitationAlways: true,
-      messagesReceiveCallbackIncludeSend: true);
-  await ChatClient.getInstance.init(options).then((value) async {
-    runApp(const MainApp());
-  });
+  // final options = ChatOptions(
+  //     appKey: "411297342#1528399",
+  //     autoLogin: false,
+  //     acceptInvitationAlways: true,
+  //     messagesReceiveCallbackIncludeSend: true);
+  // await ChatClient.getInstance.init(options).then((value) async {
+  //   runApp(const MainApp());
+  // });
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {

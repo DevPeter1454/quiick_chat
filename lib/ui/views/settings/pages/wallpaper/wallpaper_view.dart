@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'wallpaper_viewmodel.dart';
 
 class WallpaperView extends StatelessWidget {
-  const WallpaperView({Key? key}) : super(key: key);
+  const WallpaperView({super.key});
 
   @override
   Widget build(BuildContext context) {

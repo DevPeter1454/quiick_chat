@@ -9,6 +9,7 @@ android {
     namespace = "com.example.quiick_chat"
     compileSdk = 35  // Explicitly set to 34 instead of using flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
+    buildToolsVersion "23.0.1"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

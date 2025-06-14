@@ -1,8 +1,7 @@
-import 'package:agora_chat_uikit/sdk_service/chat_sdk_service.dart';
+// import 'package:agora_chat_uikit/sdk_service/chat_sdk_service.dart';
 import 'package:quiick_chat/app/app.dialogs.dart' show DialogType;
 import 'package:quiick_chat/app/app.locator.dart';
 import 'package:quiick_chat/app/app.logger.dart' show getLogger;
-import 'package:quiick_chat/app/app.router.dart';
 import 'package:quiick_chat/repository/export.dart';
 import 'package:quiick_chat/services/export.dart';
 import 'package:quiick_chat/services/local_storage_service.dart'
@@ -119,71 +118,71 @@ class LoginViewModel extends BaseViewModel {
     }
   }
 
-  Future<void> loginIntoAgora() async {
-    // logger.d(_localStorageService.getRefreshToken());
-    await refreshToken();
-    try {
-      final agoraUsername =
-          _localStorageService.getUser()!.agoraChatInfo!.username;
-      final agoraPassword =
-          _localStorageService.getUser()!.agoraChatInfo!.password;
-      bool connected = await ChatClient.getInstance.isConnected();
-      if (connected) {
-        await ChatClient.getInstance.logout();
-      }
-      _loadingService.showLoading(loadingText: "");
-      await ChatClient.getInstance
-          .loginWithPassword(agoraUsername, agoraPassword!)
-          .then((value) {
-        logger.d("login success");
-      }).whenComplete(() {
-        _loadingService.hideLoading();
-      });
-      bool isconnected = await ChatClient.getInstance.isConnected();
-      logger.d("connected: $isconnected");
+  // Future<void> loginIntoAgora() async {
+  //   // logger.d(_localStorageService.getRefreshToken());
+  //   await refreshToken();
+  //   try {
+  //     final agoraUsername =
+  //         _localStorageService.getUser()!.agoraChatInfo!.username;
+  //     final agoraPassword =
+  //         _localStorageService.getUser()!.agoraChatInfo!.password;
+  //     bool connected = await ChatClient.getInstance.isConnected();
+  //     if (connected) {
+  //       await ChatClient.getInstance.logout();
+  //     }
+  //     _loadingService.showLoading(loadingText: "");
+  //     await ChatClient.getInstance
+  //         .loginWithPassword(agoraUsername, agoraPassword!)
+  //         .then((value) {
+  //       logger.d("login success");
+  //     }).whenComplete(() {
+  //       _loadingService.hideLoading();
+  //     });
+  //     bool isconnected = await ChatClient.getInstance.isConnected();
+  //     logger.d("connected: $isconnected");
 
-      await ChatClient.getInstance.startCallback().then((value) {
-        setupListeners();
-        _navigationService.navigateTo(Routes.bottomNavBarView);
-      });
-      // bool isConnected = await ChatClient.getInstance.isConnected();
-      // print("connected $isConnected");
-    } catch (e) {
-      logger.e(e);
-      _toastService.showError("Error", "Error initiating app");
-    }
-  }
+  //     await ChatClient.getInstance.startCallback().then((value) {
+  //       setupListeners();
+  //       _navigationService.navigateTo(Routes.bottomNavBarView);
+  //     });
+  //     // bool isConnected = await ChatClient.getInstance.isConnected();
+  //     // print("connected $isConnected");
+  //   } catch (e) {
+  //     logger.e(e);
+  //     _toastService.showError("Error", "Error initiating app");
+  //   }
+  // }
 
-  void setupListeners() {
-    var agoraChatClient = ChatClient.getInstance;
+  // void setupListeners() {
+  //   var agoraChatClient = ChatClient.getInstance;
 
-    agoraChatClient.addConnectionEventHandler(
-      "CONNECTION_HANDLER",
-      ConnectionEventHandler(
-          onConnected: onConnected,
-          onDisconnected: onDisconnected,
-          onTokenWillExpire: onTokenWillExpire,
-          onTokenDidExpire: onTokenDidExpire),
-    );
+  //   agoraChatClient.addConnectionEventHandler(
+  //     "CONNECTION_HANDLER",
+  //     ConnectionEventHandler(
+  //         onConnected: onConnected,
+  //         onDisconnected: onDisconnected,
+  //         onTokenWillExpire: onTokenWillExpire,
+  //         onTokenDidExpire: onTokenDidExpire),
+  //   );
 
-    agoraChatClient.chatManager.addEventHandler(
-      "MESSAGE_HANDLER",
-      ChatEventHandler(onMessagesReceived: onMessagesReceived),
-    );
-  }
+  //   agoraChatClient.chatManager.addEventHandler(
+  //     "MESSAGE_HANDLER",
+  //     ChatEventHandler(onMessagesReceived: onMessagesReceived),
+  //   );
+  // }
 
-  void onMessagesReceived(List<ChatMessage> messages) {
-    for (var msg in messages) {
-      if (msg.body.type == MessageType.TXT) {
-        ChatTextMessageBody body = msg.body as ChatTextMessageBody;
-        // displayMessage(body.content, false);
-        // showLog("Message from ${msg.from}");
-      } else {
-        String msgType = msg.body.type.name;
-        // showLog("Received $msgType message, from ${msg.from}");
-      }
-    }
-  }
+  // void onMessagesReceived(List<ChatMessage> messages) {
+  //   for (var msg in messages) {
+  //     if (msg.body.type == MessageType.TXT) {
+  //       ChatTextMessageBody body = msg.body as ChatTextMessageBody;
+  //       // displayMessage(body.content, false);
+  //       // showLog("Message from ${msg.from}");
+  //     } else {
+  //       String msgType = msg.body.type.name;
+  //       // showLog("Received $msgType message, from ${msg.from}");
+  //     }
+  //   }
+  // }
 
   void onTokenWillExpire() {
     // The token is about to expire. Get a new token

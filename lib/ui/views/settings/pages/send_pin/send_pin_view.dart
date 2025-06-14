@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'send_pin_viewmodel.dart';
 
 class SendPinView extends StatelessWidget {
-  const SendPinView({Key? key}) : super(key: key);
+  const SendPinView({super.key});
 
   @override
   Widget build(BuildContext context) {

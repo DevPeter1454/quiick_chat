@@ -21,7 +21,7 @@ class CustomTextField extends StatelessWidget {
   final bool? filled;
 
   const CustomTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.hintText,
     required this.keyboardType,
@@ -39,7 +39,7 @@ class CustomTextField extends StatelessWidget {
     this.enabled = true,
     this.style,
     this.filled = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

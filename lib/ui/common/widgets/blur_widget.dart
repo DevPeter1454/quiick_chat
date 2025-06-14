@@ -9,13 +9,13 @@ class Blur extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   const Blur({
-    Key? key,
+    super.key,
     required this.child,
     this.blur = 5.0,
     this.overlayColor,
     this.borderRadius,
     this.padding = EdgeInsets.zero,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

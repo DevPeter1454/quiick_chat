@@ -9,10 +9,10 @@ class VoiceMessagePlayer extends StatefulWidget {
   final bool isSender;
 
   const VoiceMessagePlayer({
-    Key? key,
+    super.key,
     required this.audioUrl,
     required this.isSender,
-  }) : super(key: key);
+  });
 
   @override
   State<VoiceMessagePlayer> createState() => _VoiceMessagePlayerState();
