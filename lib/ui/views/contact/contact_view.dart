@@ -40,7 +40,7 @@ class ContactView extends StatelessWidget with $ContactView {
                     ),
                     const Spacer(),
                     Text(
-                      "Contacts",
+                      "Contact",
                       style: AppTextstyles.semiBold(
                           color: AppColors.kcPrimaryColor, size: 22.sp),
                     ),
@@ -63,7 +63,7 @@ class ContactView extends StatelessWidget with $ContactView {
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "Create groups",
+                  "Create group",
                   style: AppTextstyles.semiBold(
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),
@@ -75,7 +75,7 @@ class ContactView extends StatelessWidget with $ContactView {
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "New contacts",
+                  "New contact",
                   style: AppTextstyles.semiBold(
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),
