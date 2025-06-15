@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:quiick_chat/app/app.dart';
 import 'package:quiick_chat/ui/common/export.dart';
 import 'package:quiick_chat/ui/common/widgets/custom_text_field.dart';
 import 'package:stacked/stacked.dart';
-
+import 'package:stacked/stacked_annotations.dart';
 import 'contact_viewmodel.dart';
 
 class ContactView extends StatelessWidget {
   const ContactView({super.key});
 
+  @FormView(fields: [
+    FormTextField(
+      name: 'contact',
+    )
+  ])
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ContactViewModel>.reactive(
@@ -39,14 +46,39 @@ class ContactView extends StatelessWidget {
                   ],
                 ),
               ),
-              // verticalSpace(17.h),
+              verticalSpace(17.h),
               // Padding(
               //     padding: EdgeInsets.only(left: 9.w, right: 30.w),
               //     child: CustomTextField(
-              //       controller: searchController,
+              //       controller: contactSearchController,
               //       hintText: 'Search',
               //       keyboardType: TextInputType.text,
               //     )),
+              ListTile(
+                leading: SvgPicture.asset(
+                  AppIcons.groupIcon,
+                  height: 20.25.h,
+                  width: 11.94.w,
+                ),
+                title: Text(
+                  "Create groups",
+                  style: AppTextstyles.semiBold(
+                      color: AppColors.kcPrimaryColor, size: 16.sp),
+                ),
+              ),
+              ListTile(
+                leading: SvgPicture.asset(
+                  AppIcons.groupIcon,
+                  height: 20.25.h,
+                  width: 11.94.w,
+                ),
+                title: Text(
+                  "New contacts",
+                  style: AppTextstyles.semiBold(
+                      color: AppColors.kcPrimaryColor, size: 16.sp),
+                ),
+                onTap: () {},
+              )
             ],
           ),
         ),
