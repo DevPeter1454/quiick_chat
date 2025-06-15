@@ -26,7 +26,7 @@ dependencies:
   stacked: ^3.4.4
   stacked_services: ^1.6.0
 
-  analyzer: ^7.4.5
+  analyzer: ^6.11.0
   stacked_shared: ^1.4.2
   logger: any
   http_parser: ^4.0.2

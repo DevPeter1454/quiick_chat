@@ -3,21 +3,23 @@ import 'package:flutter_svg/svg.dart';
 import 'package:quiick_chat/app/app.dart';
 import 'package:quiick_chat/ui/common/export.dart';
 import 'package:quiick_chat/ui/common/widgets/custom_text_field.dart';
+import 'package:quiick_chat/ui/views/contact/contact_view.form.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'contact_viewmodel.dart';
 
-class ContactView extends StatelessWidget {
+@FormView(fields: [
+  FormTextField(
+    name: 'contact',
+  )
+])
+class ContactView extends StatelessWidget with $ContactView {
   const ContactView({super.key});
 
-  @FormView(fields: [
-    FormTextField(
-      name: 'contact',
-    )
-  ])
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ContactViewModel>.reactive(
+      onViewModelReady: (model) => syncFormWithViewModel(model),
       viewModelBuilder: () => ContactViewModel(),
       builder: (context, model, child) => Scaffold(
         body: Container(
