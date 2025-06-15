@@ -7,54 +7,52 @@
 // ignore_for_file: public_member_api_docs, constant_identifier_names, non_constant_identifier_names,unnecessary_this
 
 import 'package:flutter/material.dart';
-import 'package:quiick_chat/shared/validator.dart';
 import 'package:stacked/stacked.dart';
 
 const bool _autoTextFieldValidation = true;
 
-const String PhoneNumberValueKey = 'phoneNumber';
+const String ContactValueKey = 'contact';
 
-final Map<String, TextEditingController>
-    _OnboardingPhoneViewTextEditingControllers = {};
+final Map<String, TextEditingController> _ContactViewTextEditingControllers =
+    {};
 
-final Map<String, FocusNode> _OnboardingPhoneViewFocusNodes = {};
+final Map<String, FocusNode> _ContactViewFocusNodes = {};
 
-final Map<String, String? Function(String?)?>
-    _OnboardingPhoneViewTextValidations = {
-  PhoneNumberValueKey: Validator.validatePhoneNumber,
+final Map<String, String? Function(String?)?> _ContactViewTextValidations = {
+  ContactValueKey: null,
 };
 
-mixin $OnboardingPhoneView {
-  TextEditingController get phoneNumberController =>
-      _getFormTextEditingController(PhoneNumberValueKey);
+mixin $ContactView {
+  TextEditingController get contactController =>
+      _getFormTextEditingController(ContactValueKey);
 
-  FocusNode get phoneNumberFocusNode => _getFormFocusNode(PhoneNumberValueKey);
+  FocusNode get contactFocusNode => _getFormFocusNode(ContactValueKey);
 
   TextEditingController _getFormTextEditingController(
     String key, {
     String? initialValue,
   }) {
-    if (_OnboardingPhoneViewTextEditingControllers.containsKey(key)) {
-      return _OnboardingPhoneViewTextEditingControllers[key]!;
+    if (_ContactViewTextEditingControllers.containsKey(key)) {
+      return _ContactViewTextEditingControllers[key]!;
     }
 
-    _OnboardingPhoneViewTextEditingControllers[key] =
+    _ContactViewTextEditingControllers[key] =
         TextEditingController(text: initialValue);
-    return _OnboardingPhoneViewTextEditingControllers[key]!;
+    return _ContactViewTextEditingControllers[key]!;
   }
 
   FocusNode _getFormFocusNode(String key) {
-    if (_OnboardingPhoneViewFocusNodes.containsKey(key)) {
-      return _OnboardingPhoneViewFocusNodes[key]!;
+    if (_ContactViewFocusNodes.containsKey(key)) {
+      return _ContactViewFocusNodes[key]!;
     }
-    _OnboardingPhoneViewFocusNodes[key] = FocusNode();
-    return _OnboardingPhoneViewFocusNodes[key]!;
+    _ContactViewFocusNodes[key] = FocusNode();
+    return _ContactViewFocusNodes[key]!;
   }
 
   /// Registers a listener on every generated controller that calls [model.setData()]
   /// with the latest textController values
   void syncFormWithViewModel(FormStateHelper model) {
-    phoneNumberController.addListener(() => _updateFormData(model));
+    contactController.addListener(() => _updateFormData(model));
 
     _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
@@ -66,7 +64,7 @@ mixin $OnboardingPhoneView {
     'This feature was deprecated after 3.1.0.',
   )
   void listenToFormUpdated(FormViewModel model) {
-    phoneNumberController.addListener(() => _updateFormData(model));
+    contactController.addListener(() => _updateFormData(model));
 
     _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
@@ -76,7 +74,7 @@ mixin $OnboardingPhoneView {
     model.setData(
       model.formValueMap
         ..addAll({
-          PhoneNumberValueKey: phoneNumberController.text,
+          ContactValueKey: contactController.text,
         }),
     );
 
@@ -94,15 +92,15 @@ mixin $OnboardingPhoneView {
   void disposeForm() {
     // The dispose function for a TextEditingController sets all listeners to null
 
-    for (var controller in _OnboardingPhoneViewTextEditingControllers.values) {
+    for (var controller in _ContactViewTextEditingControllers.values) {
       controller.dispose();
     }
-    for (var focusNode in _OnboardingPhoneViewFocusNodes.values) {
+    for (var focusNode in _ContactViewFocusNodes.values) {
       focusNode.dispose();
     }
 
-    _OnboardingPhoneViewTextEditingControllers.clear();
-    _OnboardingPhoneViewFocusNodes.clear();
+    _ContactViewTextEditingControllers.clear();
+    _ContactViewFocusNodes.clear();
   }
 }
 
@@ -118,56 +116,53 @@ extension ValueProperties on FormStateHelper {
     return !hasAnyValidationMessage;
   }
 
-  String? get phoneNumberValue =>
-      this.formValueMap[PhoneNumberValueKey] as String?;
+  String? get contactValue => this.formValueMap[ContactValueKey] as String?;
 
-  set phoneNumberValue(String? value) {
+  set contactValue(String? value) {
     this.setData(
-      this.formValueMap..addAll({PhoneNumberValueKey: value}),
+      this.formValueMap..addAll({ContactValueKey: value}),
     );
 
-    if (_OnboardingPhoneViewTextEditingControllers.containsKey(
-        PhoneNumberValueKey)) {
-      _OnboardingPhoneViewTextEditingControllers[PhoneNumberValueKey]?.text =
-          value ?? '';
+    if (_ContactViewTextEditingControllers.containsKey(ContactValueKey)) {
+      _ContactViewTextEditingControllers[ContactValueKey]?.text = value ?? '';
     }
   }
 
-  bool get hasPhoneNumber =>
-      this.formValueMap.containsKey(PhoneNumberValueKey) &&
-      (phoneNumberValue?.isNotEmpty ?? false);
+  bool get hasContact =>
+      this.formValueMap.containsKey(ContactValueKey) &&
+      (contactValue?.isNotEmpty ?? false);
 
-  bool get hasPhoneNumberValidationMessage =>
-      this.fieldsValidationMessages[PhoneNumberValueKey]?.isNotEmpty ?? false;
+  bool get hasContactValidationMessage =>
+      this.fieldsValidationMessages[ContactValueKey]?.isNotEmpty ?? false;
 
-  String? get phoneNumberValidationMessage =>
-      this.fieldsValidationMessages[PhoneNumberValueKey];
+  String? get contactValidationMessage =>
+      this.fieldsValidationMessages[ContactValueKey];
 }
 
 extension Methods on FormStateHelper {
-  setPhoneNumberValidationMessage(String? validationMessage) =>
-      this.fieldsValidationMessages[PhoneNumberValueKey] = validationMessage;
+  setContactValidationMessage(String? validationMessage) =>
+      this.fieldsValidationMessages[ContactValueKey] = validationMessage;
 
   /// Clears text input fields on the Form
   void clearForm() {
-    phoneNumberValue = '';
+    contactValue = '';
   }
 
   /// Validates text input fields on the Form
   void validateForm() {
     this.setValidationMessages({
-      PhoneNumberValueKey: getValidationMessage(PhoneNumberValueKey),
+      ContactValueKey: getValidationMessage(ContactValueKey),
     });
   }
 }
 
 /// Returns the validation message for the given key
 String? getValidationMessage(String key) {
-  final validatorForKey = _OnboardingPhoneViewTextValidations[key];
+  final validatorForKey = _ContactViewTextValidations[key];
   if (validatorForKey == null) return null;
 
   String? validationMessageForKey = validatorForKey(
-    _OnboardingPhoneViewTextEditingControllers[key]!.text,
+    _ContactViewTextEditingControllers[key]!.text,
   );
 
   return validationMessageForKey;
@@ -176,5 +171,5 @@ String? getValidationMessage(String key) {
 /// Updates the fieldsValidationMessages on the FormViewModel
 void updateValidationData(FormStateHelper model) =>
     model.setValidationMessages({
-      PhoneNumberValueKey: getValidationMessage(PhoneNumberValueKey),
+      ContactValueKey: getValidationMessage(ContactValueKey),
     });

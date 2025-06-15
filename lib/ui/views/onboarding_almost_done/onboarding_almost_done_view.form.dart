@@ -145,7 +145,7 @@ extension ValueProperties on FormStateHelper {
 }
 
 extension Methods on FormStateHelper {
-  String? setUserNameValidationMessage(String? validationMessage) =>
+  setUserNameValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[UserNameValueKey] = validationMessage;
 
   /// Clears text input fields on the Form

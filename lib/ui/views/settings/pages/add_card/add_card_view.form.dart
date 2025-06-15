@@ -222,13 +222,13 @@ extension ValueProperties on FormStateHelper {
 }
 
 extension Methods on FormStateHelper {
-  String? setCardNumberValidationMessage(String? validationMessage) =>
+  setCardNumberValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[CardNumberValueKey] = validationMessage;
-  String? setExpiryDateValidationMessage(String? validationMessage) =>
+  setExpiryDateValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[ExpiryDateValueKey] = validationMessage;
-  String? setCvvValidationMessage(String? validationMessage) =>
+  setCvvValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[CvvValueKey] = validationMessage;
-  String? setWalletPinValidationMessage(String? validationMessage) =>
+  setWalletPinValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[WalletPinValueKey] = validationMessage;
 
   /// Clears text input fields on the Form
