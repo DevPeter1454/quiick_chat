@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:quiick_chat/app/app.dart';
 import 'package:quiick_chat/ui/common/export.dart';
-import 'package:quiick_chat/ui/common/widgets/custom_text_field.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'contact_viewmodel.dart';
@@ -47,6 +45,8 @@ class ContactView extends StatelessWidget {
                 ),
               ),
               verticalSpace(17.h),
+
+              /// space for contact search widget................................................................
               // Padding(
               //     padding: EdgeInsets.only(left: 9.w, right: 30.w),
               //     child: CustomTextField(
@@ -54,6 +54,7 @@ class ContactView extends StatelessWidget {
               //       hintText: 'Search',
               //       keyboardType: TextInputType.text,
               //     )),
+              // contact search widget end...................................................
               ListTile(
                 leading: SvgPicture.asset(
                   AppIcons.groupIcon,
@@ -65,10 +66,13 @@ class ContactView extends StatelessWidget {
                   style: AppTextstyles.semiBold(
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),
+                onTap: () {},
+
+                /// fuctionality aspect to be done here
               ),
               ListTile(
                 leading: SvgPicture.asset(
-                  AppIcons.groupIcon,
+                  AppIcons.newContacts,
                   height: 20.25.h,
                   width: 11.94.w,
                 ),
@@ -78,6 +82,8 @@ class ContactView extends StatelessWidget {
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),
                 onTap: () {},
+
+                /// fuctionality aspect to be done here
               )
             ],
           ),

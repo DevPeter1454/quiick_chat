@@ -11,6 +11,7 @@ class AppIcons {
   static const String filterIcon = "assets/icons/filter.svg";
   static const String searchIcon = "assets/icons/search.svg";
   static const String groupIcon = "assets/icons/group.svg";
+  static const String newContacts = "assets/icons/new_contacts.svg";
   static const String doubleTickIcon = "assets/icons/double_check.svg";
 
   static const String qrCodeIcon = "assets/icons/qr_code.svg";
