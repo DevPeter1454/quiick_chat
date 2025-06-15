@@ -23,10 +23,11 @@ dependencies:
 
   shared_preferences: 2.2.3
   sprung: ^3.0.1
-  stacked: ^3.4.0
-  stacked_services: ^1.1.0
+  stacked: ^3.4.4
+  stacked_services: ^1.6.0
 
-  stacked_shared: any
+  analyzer: ^7.4.5
+  stacked_shared: ^1.4.2
   logger: any
   http_parser: ^4.0.2
   image_picker: ^1.1.2
@@ -39,7 +40,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^6.0.0
   mockito: ^5.4.1
-  stacked_generator: ^1.3.3
+  stacked_generator: ^1.6.1
   golden_toolkit: ^0.15.0
 
   logger: any
