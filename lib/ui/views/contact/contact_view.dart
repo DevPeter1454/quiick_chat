@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quiick_chat/ui/common/export.dart';
+// <<<<<<< HEAD
+// =======
+import 'package:quiick_chat/ui/common/widgets/custom_text_field.dart';
+import 'package:quiick_chat/ui/views/contact/contact_view.form.dart';
+//>>>>>>> d90f4c12e5841e7c62769de9da7e8b6861b6eca7/
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'contact_viewmodel.dart';
 
-class ContactView extends StatelessWidget {
+@FormView(fields: [
+  FormTextField(
+    name: 'contact',
+  )
+])
+class ContactView extends StatelessWidget with $ContactView {
   const ContactView({super.key});
 
-  @FormView(fields: [
-    FormTextField(
-      name: 'contact',
-    )
-  ])
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ContactViewModel>.reactive(
+      onViewModelReady: (model) => syncFormWithViewModel(model),
       viewModelBuilder: () => ContactViewModel(),
       builder: (context, model, child) => Scaffold(
         body: Container(
@@ -36,7 +42,7 @@ class ContactView extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      "Contacts",
+                      "Contact",
                       style: AppTextstyles.semiBold(
                           color: AppColors.kcPrimaryColor, size: 22.sp),
                     ),
@@ -47,13 +53,13 @@ class ContactView extends StatelessWidget {
               verticalSpace(17.h),
 
               /// space for contact search widget................................................................
-              // Padding(
-              //     padding: EdgeInsets.only(left: 9.w, right: 30.w),
-              //     child: CustomTextField(
-              //       controller: contactSearchController,
-              //       hintText: 'Search',
-              //       keyboardType: TextInputType.text,
-              //     )),
+              Padding(
+                  padding: EdgeInsets.only(left: 9.w, right: 30.w),
+                  child: CustomTextField(
+                    controller: contactController,
+                    hintText: 'Search',
+                    keyboardType: TextInputType.text,
+                  )),
               // contact search widget end...................................................
               ListTile(
                 leading: SvgPicture.asset(
@@ -62,7 +68,7 @@ class ContactView extends StatelessWidget {
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "Create groups",
+                  "Create group",
                   style: AppTextstyles.semiBold(
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),
@@ -77,7 +83,7 @@ class ContactView extends StatelessWidget {
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "New contacts",
+                  "New contact",
                   style: AppTextstyles.semiBold(
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),

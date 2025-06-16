@@ -1,3 +1,3 @@
 import 'package:stacked/stacked.dart';
 
-class ContactViewModel extends BaseViewModel {}
+class ContactViewModel extends FormViewModel {}
