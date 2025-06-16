@@ -13,6 +13,8 @@ class AppIcons {
   static const String groupIcon = "assets/icons/group.svg";
   static const String newContacts = "assets/icons/new_contacts.svg";
   static const String doubleTickIcon = "assets/icons/double_check.svg";
+  static const String chatColor = "assets/icons/chat_color.svg";
+  static const String chatWallpaper = "assets/icons/chat_wallpaper.svg";
 
   static const String qrCodeIcon = "assets/icons/qr_code.svg";
   static const String sendIcon = "assets/icons/send.svg";

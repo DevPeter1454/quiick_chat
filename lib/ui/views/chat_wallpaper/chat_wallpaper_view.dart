@@ -19,6 +19,7 @@ class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
         body: Container(
           padding: const EdgeInsets.only(
             left: 21.0,
+            right: 21.0,
           ),
           child: ListView(
             children: [
@@ -29,7 +30,7 @@ class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {}, // handle going back to previouss page
                       icon: Icon(
                         Icons.arrow_back_ios,
                         color: AppColors.kcPrimaryColor,
@@ -48,29 +49,70 @@ class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
               verticalSpace(17.h),
               ListTile(
                 leading: SvgPicture.asset(
-                  AppIcons.groupIcon,
+                  AppIcons.chatColor,
                   height: 20.25.h,
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "Create groups",
+                  "Chat color",
                   style: AppTextstyles.semiBold(
-                      color: AppColors.kcPrimaryColor, size: 16.sp),
+                      color: AppColors.kcBlackColor, size: 16.sp),
+                ),
+                trailing: SizedBox(
+                  width: 50.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Container(
+                        height: 20.25.h,
+                        width: 20.25.w,
+                        decoration: const BoxDecoration(
+                            color: Colors.amberAccent, // needs to be updated
+                            shape: BoxShape.circle),
+                      ),
+                      SvgPicture.asset(
+                        AppIcons.arrowForwardIcon,
+                        height: 11.25.h,
+                        width: 11.94.w,
+                        color: AppColors.kcBlackColor,
+                      )
+                    ],
+                  ),
                 ),
                 onTap: () {},
 
                 /// fuctionality aspect to be done here
               ),
+              verticalSpace(7.h),
               ListTile(
                 leading: SvgPicture.asset(
-                  AppIcons.newContacts,
+                  AppIcons.chatWallpaper,
                   height: 20.25.h,
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "New contacts",
+                  "New contact",
                   style: AppTextstyles.semiBold(
-                      color: AppColors.kcPrimaryColor, size: 16.sp),
+                      color: AppColors.kcBlackColor, size: 16.sp),
+                ),
+                trailing: SizedBox(
+                  width: 50.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Container(
+                        height: 20.25.h,
+                        width: 11.94.w,
+                        color: Colors.blue, // needs to be updated
+                      ),
+                      SvgPicture.asset(
+                        AppIcons.arrowForwardIcon,
+                        height: 11.25.h,
+                        width: 11.94.w,
+                        color: AppColors.kcBlackColor,
+                      )
+                    ],
+                  ),
                 ),
                 onTap: () {},
 
