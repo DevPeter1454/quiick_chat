@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quiick_chat/ui/common/export.dart';
-// <<<<<<< HEAD
-// =======
-import 'package:quiick_chat/ui/common/widgets/custom_text_field.dart';
-import 'package:quiick_chat/ui/views/contact/contact_view.form.dart';
-//>>>>>>> d90f4c12e5841e7c62769de9da7e8b6861b6eca7/
 import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
-import 'contact_viewmodel.dart';
 
-@FormView(fields: [
-  FormTextField(
-    name: 'contact',
-  )
-])
-class ContactView extends StatelessWidget with $ContactView {
-  const ContactView({super.key});
+import 'chat_wallpaper_viewmodel.dart';
+
+class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
+  const ChatWallpaperView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ViewModelBuilder<ContactViewModel>.reactive(
-      onViewModelReady: (model) => syncFormWithViewModel(model),
-      viewModelBuilder: () => ContactViewModel(),
-      builder: (context, model, child) => Scaffold(
+  Widget builder(
+    BuildContext context,
+    ChatWallpaperViewModel viewModel,
+    Widget? child,
+  ) {
+    return Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.surface,
         body: Container(
           padding: const EdgeInsets.only(
             left: 21.0,
@@ -37,7 +29,7 @@ class ContactView extends StatelessWidget with $ContactView {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      onPressed: () {}, // contact functionality
+                      onPressed: () {},
                       icon: Icon(
                         Icons.arrow_back_ios,
                         color: AppColors.kcPrimaryColor,
@@ -45,7 +37,7 @@ class ContactView extends StatelessWidget with $ContactView {
                     ),
                     const Spacer(),
                     Text(
-                      "Contact",
+                      "Chat Wallpaper",
                       style: AppTextstyles.semiBold(
                           color: AppColors.kcPrimaryColor, size: 22.sp),
                     ),
@@ -54,16 +46,6 @@ class ContactView extends StatelessWidget with $ContactView {
                 ),
               ),
               verticalSpace(17.h),
-
-              /// space for contact search widget................................................................
-              Padding(
-                  padding: EdgeInsets.only(left: 9.w, right: 30.w),
-                  child: CustomTextField(
-                    controller: contactController,
-                    hintText: 'Search',
-                    keyboardType: TextInputType.text,
-                  )),
-              // contact search widget end...................................................
               ListTile(
                 leading: SvgPicture.asset(
                   AppIcons.groupIcon,
@@ -71,7 +53,7 @@ class ContactView extends StatelessWidget with $ContactView {
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "Create group",
+                  "Create groups",
                   style: AppTextstyles.semiBold(
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),
@@ -86,7 +68,7 @@ class ContactView extends StatelessWidget with $ContactView {
                   width: 11.94.w,
                 ),
                 title: Text(
-                  "New contact",
+                  "New contacts",
                   style: AppTextstyles.semiBold(
                       color: AppColors.kcPrimaryColor, size: 16.sp),
                 ),
@@ -96,8 +78,12 @@ class ContactView extends StatelessWidget with $ContactView {
               )
             ],
           ),
-        ),
-      ),
-    );
+        ));
   }
+
+  @override
+  ChatWallpaperViewModel viewModelBuilder(
+    BuildContext context,
+  ) =>
+      ChatWallpaperViewModel();
 }

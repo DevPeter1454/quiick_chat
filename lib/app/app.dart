@@ -45,6 +45,7 @@ import 'package:quiick_chat/ui/views/message_chat/message_chat_view.dart';
 import 'package:quiick_chat/ui/dialogs/file/file_dialog.dart';
 import 'package:quiick_chat/ui/dialogs/preview/preview_dialog.dart';
 import 'package:quiick_chat/ui/views/create_group/create_group_view.dart';
+import 'package:quiick_chat/ui/views/chat_wallpaper/chat_wallpaper_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -80,6 +81,7 @@ import 'package:quiick_chat/ui/views/create_group/create_group_view.dart';
     MaterialRoute(page: LoginView),
     MaterialRoute(page: MessageChatView),
     MaterialRoute(page: CreateGroupView),
+    MaterialRoute(page: ChatWallpaperView),
 // @stacked-route
   ],
   dependencies: [

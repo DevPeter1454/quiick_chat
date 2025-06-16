@@ -6,11 +6,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as _i33;
+import 'package:flutter/material.dart' as _i34;
 import 'package:quiick_chat/ui/views/bottom_nav_bar/bottom_nav_bar_view.dart'
     as _i9;
 import 'package:quiick_chat/ui/views/call/call_view.dart' as _i12;
 import 'package:quiick_chat/ui/views/chat/chat_view.dart' as _i13;
+import 'package:quiick_chat/ui/views/chat_wallpaper/chat_wallpaper_view.dart'
+    as _i33;
 import 'package:quiick_chat/ui/views/contact/contact_view.dart' as _i14;
 import 'package:quiick_chat/ui/views/create_group/create_group_view.dart'
     as _i32;
@@ -61,7 +63,7 @@ import 'package:quiick_chat/ui/views/settings/settings_view.dart' as _i10;
 import 'package:quiick_chat/ui/views/startup/startup_view.dart' as _i3;
 import 'package:quiick_chat/ui/views/update/update_view.dart' as _i11;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i34;
+import 'package:stacked_services/stacked_services.dart' as _i35;
 
 class Routes {
   static const homeView = '/home-view';
@@ -126,6 +128,8 @@ class Routes {
 
   static const createGroupView = '/create-group-view';
 
+  static const chatWallpaperView = '/chat-wallpaper-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -158,6 +162,7 @@ class Routes {
     loginView,
     messageChatView,
     createGroupView,
+    chatWallpaperView,
   };
 }
 
@@ -287,193 +292,203 @@ class StackedRouter extends _i1.RouterBase {
       Routes.createGroupView,
       page: _i32.CreateGroupView,
     ),
+    _i1.RouteDef(
+      Routes.chatWallpaperView,
+      page: _i33.ChatWallpaperView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.OnboardingView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.OnboardingView(),
         settings: data,
       );
     },
     _i5.OnboardingLanguageView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.OnboardingLanguageView(),
         settings: data,
       );
     },
     _i6.OnboardingPhoneView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.OnboardingPhoneView(),
         settings: data,
       );
     },
     _i7.OnboardingPhoneOtpView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.OnboardingPhoneOtpView(),
         settings: data,
       );
     },
     _i8.OnboardingAlmostDoneView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.OnboardingAlmostDoneView(),
         settings: data,
       );
     },
     _i9.BottomNavBarView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.BottomNavBarView(),
         settings: data,
       );
     },
     _i10.SettingsView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.SettingsView(),
         settings: data,
       );
     },
     _i11.UpdateView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.UpdateView(),
         settings: data,
       );
     },
     _i12.CallView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.CallView(),
         settings: data,
       );
     },
     _i13.ChatView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.ChatView(),
         settings: data,
       );
     },
     _i14.ContactView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.ContactView(),
         settings: data,
       );
     },
     _i15.WalletView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.WalletView(),
         settings: data,
       );
     },
     _i16.AddCardView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.AddCardView(),
         settings: data,
       );
     },
     _i17.SendView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.SendView(),
         settings: data,
       );
     },
     _i18.SendPinView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.SendPinView(),
         settings: data,
       );
     },
     _i19.ProfileView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.ProfileView(),
         settings: data,
       );
     },
     _i20.PrivacyView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i20.PrivacyView(),
         settings: data,
       );
     },
     _i21.NotificationsView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i21.NotificationsView(),
         settings: data,
       );
     },
     _i22.StorageView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i22.StorageView(),
         settings: data,
       );
     },
     _i23.StorageAndDataView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i23.StorageAndDataView(),
         settings: data,
       );
     },
     _i24.ChatBackupView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i24.ChatBackupView(),
         settings: data,
       );
     },
     _i25.StarredMessagesView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i25.StarredMessagesView(),
         settings: data,
       );
     },
     _i26.LinkedDevicesView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i26.LinkedDevicesView(),
         settings: data,
       );
     },
     _i27.LanguageView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i27.LanguageView(),
         settings: data,
       );
     },
     _i28.WallpaperView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i28.WallpaperView(),
         settings: data,
       );
     },
     _i29.TranslateView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i29.TranslateView(),
         settings: data,
       );
     },
     _i30.LoginView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i30.LoginView(),
         settings: data,
       );
     },
     _i31.MessageChatView: (data) {
       final args = data.getArgs<MessageChatViewArguments>(nullOk: false);
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => _i31.MessageChatView(args.userId, key: args.key),
         settings: data,
       );
     },
     _i32.CreateGroupView: (data) {
-      return _i33.MaterialPageRoute<dynamic>(
+      return _i34.MaterialPageRoute<dynamic>(
         builder: (context) => const _i32.CreateGroupView(),
+        settings: data,
+      );
+    },
+    _i33.ChatWallpaperView: (data) {
+      return _i34.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i33.ChatWallpaperView(),
         settings: data,
       );
     },
@@ -494,7 +509,7 @@ class MessageChatViewArguments {
 
   final String userId;
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
   @override
   String toString() {
@@ -513,7 +528,7 @@ class MessageChatViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i34.NavigationService {
+extension NavigatorStateExtension on _i35.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -922,7 +937,7 @@ extension NavigatorStateExtension on _i34.NavigationService {
 
   Future<dynamic> navigateToMessageChatView({
     required String userId,
-    _i33.Key? key,
+    _i34.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -945,6 +960,20 @@ extension NavigatorStateExtension on _i34.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.createGroupView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToChatWallpaperView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.chatWallpaperView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -1359,7 +1388,7 @@ extension NavigatorStateExtension on _i34.NavigationService {
 
   Future<dynamic> replaceWithMessageChatView({
     required String userId,
-    _i33.Key? key,
+    _i34.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -1382,6 +1411,20 @@ extension NavigatorStateExtension on _i34.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.createGroupView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithChatWallpaperView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.chatWallpaperView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
