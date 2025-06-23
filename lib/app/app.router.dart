@@ -496,7 +496,9 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i33.ChatWallpaperView: (data) {
       return _i35.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i33.ChatWallpaperView(),
+        builder: (context) => const _i33.ChatWallpaperView(
+          colorString: '',
+        ),
         settings: data,
       );
     },

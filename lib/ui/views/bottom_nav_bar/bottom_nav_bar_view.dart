@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quiick_chat/ui/common/export.dart';
 import 'package:stacked/stacked.dart';
@@ -63,7 +64,8 @@ class BottomNavBarView extends StackedView<BottomNavBarViewModel> {
 
   @override
   void onViewModelReady(BottomNavBarViewModel viewModel) {
-    // viewModel.init();
-    super.onViewModelReady(viewModel);
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      viewModel.colorChat();
+    });
   }
 }

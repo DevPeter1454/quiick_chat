@@ -37,7 +37,7 @@ class MainApp extends StatelessWidget {
         child: LoadingManager(
           child: MaterialApp(
             scaffoldMessengerKey: rootScaffoldMessengerKey,
-            initialRoute: Routes.bottomNavBarView,
+            initialRoute: Routes.startupView,
             onGenerateRoute: StackedRouter().onGenerateRoute,
             navigatorKey: StackedService.navigatorKey,
             debugShowCheckedModeBanner: false,

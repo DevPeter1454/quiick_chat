@@ -5,16 +5,16 @@ import 'package:stacked/stacked.dart';
 
 import 'chat_wallpaper_viewmodel.dart';
 
-class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
-  const ChatWallpaperView({super.key});
+class ChatWallpaperView extends StatelessWidget {
+  const ChatWallpaperView({super.key, required this.colorString});
+
+  final String colorString;
 
   @override
-  Widget builder(
-    BuildContext context,
-    ChatWallpaperViewModel viewModel,
-    Widget? child,
-  ) {
-    return Scaffold(
+  Widget build(BuildContext context) {
+    return ViewModelBuilder<ChatWallpaperViewModel>.reactive(
+      viewModelBuilder: () => ChatWallpaperViewModel(),
+      builder: (context, model, child) => Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
         body: Container(
           padding: const EdgeInsets.only(
@@ -66,8 +66,9 @@ class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
                       Container(
                         height: 20.25.h,
                         width: 20.25.w,
-                        decoration: const BoxDecoration(
-                            color: Colors.amberAccent, // needs to be updated
+                        decoration: BoxDecoration(
+                            color: Color(int.parse(
+                                '0x$colorString')), // needs to be updated
                             shape: BoxShape.circle),
                       ),
                       SvgPicture.asset(
@@ -79,7 +80,9 @@ class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
                     ],
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  model.navigateToChatColor();
+                },
 
                 /// fuctionality aspect to be done here
               ),
@@ -120,12 +123,8 @@ class ChatWallpaperView extends StackedView<ChatWallpaperViewModel> {
               )
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
-
-  @override
-  ChatWallpaperViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      ChatWallpaperViewModel();
 }

@@ -7,7 +7,6 @@ import 'package:quiick_chat/app/app.router.dart';
 import 'package:quiick_chat/repository/export.dart';
 import 'package:quiick_chat/services/auth_data_store_service.dart';
 import 'package:quiick_chat/services/export.dart';
-import 'package:quiick_chat/services/local_storage_service.dart';
 import 'package:quiick_chat/ui/views/onboarding_phone/onboarding_phone_view.form.dart';
 import 'package:quiick_chat/utils/countries_data.dart';
 import 'package:stacked/stacked.dart';
@@ -21,7 +20,6 @@ class OnboardingPhoneViewModel extends FormViewModel {
   final _authDataStoreService = locator<AuthDataStoreService>();
   final _loadingService = locator<LoadingService>();
   final _toastService = locator<ToastService>();
-  final _localStorageService = locator<LocalStorageService>();
   final logger = getLogger('OnboardingPhoneViewModel');
 
   void back() {

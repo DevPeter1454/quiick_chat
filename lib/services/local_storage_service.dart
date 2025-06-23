@@ -9,6 +9,8 @@ class LocalStorageService implements InitializableDependency {
   static const String _agoraTokenKey = 'agora_token';
   static const String _refreshTokenKey = 'refresh_token';
   static const String _userKey = 'user_data';
+  static const String _saveColorsKey = 'saved_colors';
+  static const String _chatColorKey = 'chat_color';
 
   final _log = getLogger('LocalStorageService');
   late SharedPreferences _prefs;
@@ -33,10 +35,35 @@ class LocalStorageService implements InitializableDependency {
   }
 
   Future<bool> saveAgoraToken(String token) async {
-    _log.i('Saving agora token ');
+    _log.i('Saving agora token');
     return await _prefs.setString(_agoraTokenKey, token);
   }
 
+///// method handling saving colors to storage.........................................
+  Future<bool> saveColorList(List<String> token) async {
+    _log.i('Saving color');
+    return await _prefs.setStringList(_saveColorsKey, token);
+  }
+
+  List<String>? getColorList() {
+    final token = _prefs.getStringList(_saveColorsKey);
+    _log.i('Retrieved access token: ${token ?? 'null'}');
+    return token;
+  }
+
+///// method handling creating chat and saving color to storage.........................................
+  Future<bool> saveChatColorToken(String token) async {
+    _log.i('Saving chat color token $token');
+    return await _prefs.setString(_chatColorKey, token);
+  }
+
+  String? getChatColorToken() {
+    final token = _prefs.getString(_chatColorKey);
+    _log.i('Retrieved chat color token: ${token != null ? 'exists' : 'null'}');
+    return token;
+  }
+
+/////////////////.....................................................................
   String? getAccessToken() {
     final token = _prefs.getString(_accessTokenKey);
     _log.i('Retrieved access token: ${token ?? 'null'}');

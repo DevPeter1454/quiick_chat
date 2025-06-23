@@ -29,7 +29,7 @@ class MessageChatView extends StackedView<MessageChatViewModel> {
     Faker.Faker faker = Faker.Faker();
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        body: Center(
+        body: const Center(
           child: Text("Chat body"),
         )
         // MessagesView(

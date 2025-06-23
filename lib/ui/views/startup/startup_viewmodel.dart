@@ -1,4 +1,6 @@
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:quiick_chat/services/local_storage_service.dart';
+import 'package:quiick_chat/ui/common/export.dart';
 import 'package:stacked/stacked.dart';
 import 'package:quiick_chat/app/app.locator.dart';
 import 'package:quiick_chat/app/app.router.dart';
@@ -18,7 +20,16 @@ class StartupViewModel extends BaseViewModel {
 
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
+    _navigationService.replaceWithBottomNavBarView();
+    //_navigationService.replaceWithOnboardingView();
+  }
 
-    _navigationService.replaceWithOnboardingView();
+  Future<void> addChatColor() async {
+    String? chatColor = _localStorageService.getChatColorToken();
+    if (chatColor == null) {
+      _localStorageService
+          .saveChatColorToken(AppColors.kcPrimaryColor.toHexString());
+    }
+    return;
   }
 }
