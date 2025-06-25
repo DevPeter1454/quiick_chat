@@ -67,5 +67,7 @@ class BottomNavBarView extends StackedView<BottomNavBarViewModel> {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       viewModel.colorChat();
     });
+    // viewModel.init();
+    // super.onViewModelReady(viewModel);
   }
 }

@@ -32,6 +32,7 @@ class BottomNavBarViewModel extends IndexTrackingViewModel {
     const UpdateView(),
     const ChatView(),
     const CallView(),
+    //const ContactView(),
     const ChatWallpaperView(colorString: '0xff000000'),
     const SettingsView()
   ];
