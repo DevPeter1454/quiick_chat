@@ -20,8 +20,8 @@ class StartupViewModel extends BaseViewModel {
 
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
-    _navigationService.replaceWithBottomNavBarView();
-    //_navigationService.replaceWithOnboardingView();
+    // _navigationService.replaceWithBottomNavBarView();
+    _navigationService.replaceWithOnboardingView();
   }
 
   Future<void> addChatColor() async {

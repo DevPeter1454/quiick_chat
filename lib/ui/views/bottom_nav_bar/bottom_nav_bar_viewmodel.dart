@@ -4,8 +4,8 @@ import 'package:quiick_chat/services/local_storage_service.dart';
 import 'package:quiick_chat/ui/common/export.dart';
 import 'package:quiick_chat/ui/views/call/call_view.dart';
 import 'package:quiick_chat/ui/views/chat/chat_view.dart';
-import 'package:quiick_chat/ui/views/chat_wallpaper/chat_wallpaper_view.dart';
-// import 'package:quiick_chat/ui/views/contact/contact_view.dart';
+// import 'package:quiick_chat/ui/views/chat_wallpaper/chat_wallpaper_view.dart';
+import 'package:quiick_chat/ui/views/contact/contact_view.dart';
 import 'package:quiick_chat/ui/views/settings/settings_view.dart';
 import 'package:quiick_chat/ui/views/update/update_view.dart';
 import 'package:stacked/stacked.dart';
@@ -21,7 +21,7 @@ class BottomNavBarViewModel extends IndexTrackingViewModel {
         const UpdateView(),
         const ChatView(),
         const CallView(),
-        ChatWallpaperView(colorString: colorChat),
+        const ContactView(),
         const SettingsView()
       ];
       notifyListeners();
@@ -32,8 +32,7 @@ class BottomNavBarViewModel extends IndexTrackingViewModel {
     const UpdateView(),
     const ChatView(),
     const CallView(),
-    //const ContactView(),
-    const ChatWallpaperView(colorString: '0xff000000'),
+    const ContactView(),
     const SettingsView()
   ];
   List<Widget> get pages => _pages;

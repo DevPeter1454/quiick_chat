@@ -1,6 +1,6 @@
 class ApiUrls {
   static const String baseUrl =
-      "http://ec2-54-172-213-134.compute-1.amazonaws.com/api/v1";
+      "http://ec2-13-222-74-155.compute-1.amazonaws.com:8080/api/v1";
 
   static const String registerUrl = "/auth/register";
   static const String loginUrl = "/auth/login";

@@ -30,6 +30,8 @@ class AuthServiceImpl extends IAuthService {
         requiresAuth: false,
       );
 
+      print(result.message);
+
       return result;
     } catch (e, stackTrace) {
       logger.e('Registration failed: $e, $stackTrace');
