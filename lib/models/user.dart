@@ -15,11 +15,11 @@ class User {
   final AgoraChatInfo? agoraChatInfo;
 
   // New fields from the provided JSON
-  final String uuid;
+  final String? uuid;
   final String? typeField;
-  final int created;
-  final int modified;
-  final bool activated;
+  final int? created;
+  final int? modified;
+  final bool? activated;
   final String? nickname;
 
   User({
@@ -35,11 +35,11 @@ class User {
     required this.createdAtMillis,
     this.updatedAt,
     this.agoraChatInfo,
-    required this.uuid,
+    this.uuid,
     this.typeField,
-    required this.created,
-    required this.modified,
-    required this.activated,
+    this.created,
+    this.modified,
+        this.activated,
     this.nickname,
   });
 
@@ -61,12 +61,12 @@ class User {
       agoraChatInfo: json['agora_chat_info'] != null
           ? AgoraChatInfo.fromJson(json['agora_chat_info'])
           : null,
-      uuid: json['uuid'],
-      typeField: json['type_field'],
-      created: json['created'],
-      modified: json['modified'],
-      activated: json['activated'],
-      nickname: json['nickname'],
+      uuid: json['uuid'] ?? '',
+      typeField: json['type_field'] ?? '',
+      created: json['created'] ?? 0,
+      modified: json['modified'] ?? 0,
+      activated: json['activated'] ?? false,
+      nickname: json['nickname'] ?? '',
     );
   }
 

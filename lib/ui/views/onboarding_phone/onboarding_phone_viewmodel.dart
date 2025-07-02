@@ -79,8 +79,10 @@ class OnboardingPhoneViewModel extends FormViewModel {
           .setPhone("${_selectedCountry!.dialCode}$phoneNumberValue");
       final res = await _authService.register(
           phone: "${_selectedCountry!.dialCode}$phoneNumberValue");
+
       if (res.isSuccess) {
-        _toastService.showSuccess("Success", "User registered successfully");
+        _toastService.showSuccess("Success",
+            "User registered successfully verification code: ${res.data['data']['verification_code']}");
         _authDataStoreService
             .setPhone("${_selectedCountry!.dialCode}$phoneNumberValue");
 

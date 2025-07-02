@@ -30,7 +30,7 @@ class AuthServiceImpl extends IAuthService {
         requiresAuth: false,
       );
 
-      print(result.message);
+      print('data:${result.data}');
 
       return result;
     } catch (e, stackTrace) {

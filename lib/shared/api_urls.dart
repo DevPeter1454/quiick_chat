@@ -10,7 +10,7 @@ class ApiUrls {
 
   static const String verifyOtpUrl = "/auth/verify";
 
-  static const String uploadProfilePhotoUrl = "/users/";
+  static const String uploadProfilePhotoUrl = "/users";
 
   static const String getAgoraTokenUrl = "/ac/user-token";
 
