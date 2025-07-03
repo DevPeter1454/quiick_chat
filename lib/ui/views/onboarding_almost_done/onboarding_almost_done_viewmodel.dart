@@ -36,8 +36,9 @@ class OnboardingAlmostDoneViewModel extends FormViewModel {
   Future<void> navigateToBottomNavBar() async {
     try {
       _loadingService.showLoading();
-      await loginIntoAgora().then((value) =>
-          _navigationService.clearStackAndShow(Routes.bottomNavBarView));
+      _navigationService.clearStackAndShow(Routes.bottomNavBarView);
+      // await loginIntoAgora().then((value) =>
+      //     _navigationService.clearStackAndShow(Routes.bottomNavBarView));
     } catch (e) {
       logger.e(e);
     } finally {

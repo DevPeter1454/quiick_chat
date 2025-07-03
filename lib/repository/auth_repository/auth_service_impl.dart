@@ -184,7 +184,7 @@ class AuthServiceImpl extends IAuthService {
         'user_id': userID,
       };
       final result = await _apiService.uploadFile(
-        '${ApiUrls.uploadProfilePhotoUrl}/profile/picture',
+        '${ApiUrls.uploadProfilePhotoUrl}/upload-profile-picture',
         file: image,
         fileField: 'profile_picture',
         fields: dataT,
@@ -240,7 +240,7 @@ class AuthServiceImpl extends IAuthService {
       };
 
       final result = await _apiService.put(
-        '${ApiUrls.uploadProfilePhotoUrl}profile',
+        '${ApiUrls.uploadProfilePhotoUrl}/profile',
         data: data,
         fromJson: (data) => data,
         requiresAuth: true,

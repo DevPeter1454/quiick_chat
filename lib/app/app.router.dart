@@ -7,6 +7,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as _i35;
+import 'package:quiick_chat/app/app.locator.dart';
+import 'package:quiick_chat/services/local_storage_service.dart';
 import 'package:quiick_chat/ui/views/bottom_nav_bar/bottom_nav_bar_view.dart'
     as _i9;
 import 'package:quiick_chat/ui/views/call/call_view.dart' as _i12;
@@ -65,6 +67,8 @@ import 'package:quiick_chat/ui/views/startup/startup_view.dart' as _i3;
 import 'package:quiick_chat/ui/views/update/update_view.dart' as _i11;
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i36;
+
+final _localStorageService = locator<LocalStorageService>();
 
 class Routes {
   static const homeView = '/home-view';
@@ -464,8 +468,11 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i28.WallpaperView: (data) {
+      String? chatColor = _localStorageService.getChatColorToken();
       return _i35.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i28.WallpaperView(),
+        builder: (context) => _i28.WallpaperView(
+          colorString: chatColor!,
+        ),
         settings: data,
       );
     },
@@ -496,9 +503,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i33.ChatWallpaperView: (data) {
       return _i35.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i33.ChatWallpaperView(
-          colorString: '',
-        ),
+        builder: (context) => const _i33.ChatWallpaperView(),
         settings: data,
       );
     },

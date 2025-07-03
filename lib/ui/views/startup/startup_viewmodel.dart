@@ -14,7 +14,7 @@ class StartupViewModel extends BaseViewModel {
   Future runStartupLogic() async {
     await Future.delayed(const Duration(seconds: 3));
     if (_localStorageService.getAccessToken() != null) {
-      _navigationService.replaceWithOnboardingView();
+      _navigationService.replaceWithBottomNavBarView();
       return;
     }
 
