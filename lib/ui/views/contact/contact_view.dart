@@ -16,7 +16,9 @@ import 'contact_viewmodel.dart';
   )
 ])
 class ContactView extends StatelessWidget with $ContactView {
-  const ContactView({super.key});
+  const ContactView({super.key, required this.contacts});
+
+  final List<Map<String, String>> contacts;
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +95,26 @@ class ContactView extends StatelessWidget with $ContactView {
                 onTap: () {},
 
                 /// fuctionality aspect to be done here
+              ),
+              verticalSpace(17.h),
+              SizedBox(
+                height: 500.h,
+                child: ListView.builder(
+                    itemCount: contacts.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(
+                          contacts[index]['display_name']!,
+                          style: AppTextstyles.semiBold(
+                              color: AppColors.kcPrimaryColor, size: 16.sp),
+                        ),
+                        subtitle: Text(
+                          contacts[index]['phone_number']!,
+                          style: AppTextstyles.regular(
+                              color: AppColors.kcPrimaryColor, size: 10.sp),
+                        ),
+                      );
+                    }),
               )
             ],
           ),

@@ -39,7 +39,7 @@ class User {
     this.typeField,
     this.created,
     this.modified,
-        this.activated,
+    this.activated,
     this.nickname,
   });
 

@@ -7,15 +7,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as _i35;
-import 'package:quiick_chat/app/app.locator.dart';
-import 'package:quiick_chat/services/local_storage_service.dart';
 import 'package:quiick_chat/ui/views/bottom_nav_bar/bottom_nav_bar_view.dart'
     as _i9;
 import 'package:quiick_chat/ui/views/call/call_view.dart' as _i12;
 import 'package:quiick_chat/ui/views/chat/chat_view.dart' as _i13;
-import 'package:quiick_chat/ui/views/chat_color/chat_color_view.dart' as _i34;
-import 'package:quiick_chat/ui/views/chat_wallpaper/chat_wallpaper_view.dart'
-    as _i33;
 import 'package:quiick_chat/ui/views/contact/contact_view.dart' as _i14;
 import 'package:quiick_chat/ui/views/create_group/create_group_view.dart'
     as _i32;
@@ -60,6 +55,10 @@ import 'package:quiick_chat/ui/views/settings/pages/translate/translate_view.dar
     as _i29;
 import 'package:quiick_chat/ui/views/settings/pages/wallet/wallet_view.dart'
     as _i15;
+import 'package:quiick_chat/ui/views/settings/pages/wallpaper/chat_color/chat_color_view.dart'
+    as _i34;
+import 'package:quiick_chat/ui/views/settings/pages/wallpaper/chat_wallpaper/chat_wallpaper_view.dart'
+    as _i33;
 import 'package:quiick_chat/ui/views/settings/pages/wallpaper/wallpaper_view.dart'
     as _i28;
 import 'package:quiick_chat/ui/views/settings/settings_view.dart' as _i10;
@@ -67,8 +66,6 @@ import 'package:quiick_chat/ui/views/startup/startup_view.dart' as _i3;
 import 'package:quiick_chat/ui/views/update/update_view.dart' as _i11;
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i36;
-
-final _localStorageService = locator<LocalStorageService>();
 
 class Routes {
   static const homeView = '/home-view';
@@ -384,8 +381,10 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i14.ContactView: (data) {
+      final args = data.getArgs<ContactViewArguments>(nullOk: false);
       return _i35.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i14.ContactView(),
+        builder: (context) =>
+            _i14.ContactView(key: args.key, contacts: args.contacts),
         settings: data,
       );
     },
@@ -468,11 +467,10 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i28.WallpaperView: (data) {
-      String? chatColor = _localStorageService.getChatColorToken();
+      final args = data.getArgs<WallpaperViewArguments>(nullOk: false);
       return _i35.MaterialPageRoute<dynamic>(
-        builder: (context) => _i28.WallpaperView(
-          colorString: chatColor!,
-        ),
+        builder: (context) =>
+            _i28.WallpaperView(key: args.key, colorString: args.colorString),
         settings: data,
       );
     },
@@ -520,6 +518,60 @@ class StackedRouter extends _i1.RouterBase {
 
   @override
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
+}
+
+class ContactViewArguments {
+  const ContactViewArguments({
+    this.key,
+    required this.contacts,
+  });
+
+  final _i35.Key? key;
+
+  final List<Map<String, String>> contacts;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "contacts": "$contacts"}';
+  }
+
+  @override
+  bool operator ==(covariant ContactViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.contacts == contacts;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ contacts.hashCode;
+  }
+}
+
+class WallpaperViewArguments {
+  const WallpaperViewArguments({
+    this.key,
+    required this.colorString,
+  });
+
+  final _i35.Key? key;
+
+  final String colorString;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "colorString": "$colorString"}';
+  }
+
+  @override
+  bool operator ==(covariant WallpaperViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.colorString == colorString;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ colorString.hashCode;
+  }
 }
 
 class MessageChatViewArguments {
@@ -718,14 +770,17 @@ extension NavigatorStateExtension on _i36.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToContactView([
+  Future<dynamic> navigateToContactView({
+    _i35.Key? key,
+    required List<Map<String, String>> contacts,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.contactView,
+        arguments: ContactViewArguments(key: key, contacts: contacts),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -914,14 +969,17 @@ extension NavigatorStateExtension on _i36.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToWallpaperView([
+  Future<dynamic> navigateToWallpaperView({
+    _i35.Key? key,
+    required String colorString,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.wallpaperView,
+        arguments: WallpaperViewArguments(key: key, colorString: colorString),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -1183,14 +1241,17 @@ extension NavigatorStateExtension on _i36.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithContactView([
+  Future<dynamic> replaceWithContactView({
+    _i35.Key? key,
+    required List<Map<String, String>> contacts,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.contactView,
+        arguments: ContactViewArguments(key: key, contacts: contacts),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -1379,14 +1440,17 @@ extension NavigatorStateExtension on _i36.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithWallpaperView([
+  Future<dynamic> replaceWithWallpaperView({
+    _i35.Key? key,
+    required String colorString,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.wallpaperView,
+        arguments: WallpaperViewArguments(key: key, colorString: colorString),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

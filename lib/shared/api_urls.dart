@@ -15,6 +15,8 @@ class ApiUrls {
   static const String getAgoraTokenUrl = "/ac/user-token";
 
   static const String refreshTokenUrl = "/auth/refresh-token";
+// contacts url section...........................
+  static const String uploadContactUrl = '/contacts/upload';
 
   static const String generateAgoraTokenUrl = "/ac/user-token";
 
